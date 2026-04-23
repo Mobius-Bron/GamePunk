@@ -1,0 +1,30 @@
+## 忽略 Visual Studio 临时文件
+.vs/
+bin/
+obj/
+Debug/
+Release/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## 忽略编译生成的文件
+*.exe
+*.dll
+*.pdb
+*.obj
+*.o
+*.cache
+*.tmp
+
+## 忽略日志文件
+*.log
+*.tlog
+
+## 忽略 NuGet 包
+packages/
+*.nupkg
+
+## 忽略测试结果
+TestResults/
