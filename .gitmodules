@@ -1,0 +1,3 @@
+[submodule "GamePunk/vendor/spdlog"]
+	path = GamePunk/vendor/spdlog
+	url = https://github.com/gabime/spdlog

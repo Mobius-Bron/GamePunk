@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include "Application.h"
+#include "Log.h"
 #include "stdio.h"
 
 #ifdef  GP_PLATFORM_WINDOWS
@@ -11,9 +12,15 @@ int main(int argc, char** argv)
 {
 	printf("GamePunk Engine Starting...\n");
 
-	auto app = GP::CreateApplication();
+	GP::Log::Init();
+	GP_CORE_WARN("Core Initialized Log!");
 
-	printf("GamePunk Engine Running...\n");
+	int a = 5;
+	GP_INFO("Var = {0}", a);
+
+	auto app = GP::CreateApplication();
+	printf("Application Created...\n");
+
 	app->Run();
 
 	delete app;
