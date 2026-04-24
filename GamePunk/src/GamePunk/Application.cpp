@@ -10,10 +10,17 @@ namespace GP
 	}
 	void Application::Run()
 	{
+
+
 		while (true)
 		{
 			// Update
 			// Render
 		}
+	}
+
+	Application* CreateApplication()
+	{
+		return new Application();
 	}
 }

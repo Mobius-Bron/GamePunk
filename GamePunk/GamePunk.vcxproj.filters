@@ -18,12 +18,18 @@
     <ClInclude Include="src\GamePunk\Core.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Application.h">
+    <ClInclude Include="src\GamePunk\Application.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\EntryPoint.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp">
+    <ClCompile Include="src\GamePunk\Application.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
