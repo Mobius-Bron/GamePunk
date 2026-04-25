@@ -1,5 +1,7 @@
 #pragma once
 
+#include "GamePunk/Core/Base.h" 
+
 #ifdef  GP_PLATFORM_WINDOWS
 	#ifdef GP_BUILD_DLL
 		#define GAMEPUNK_API __declspec(dllexport)

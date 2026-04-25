@@ -4,6 +4,12 @@
     <Filter Include="GamePunk">
       <UniqueIdentifier>{9D2F5A32-89FC-B43D-B215-A3E59E41EACB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GamePunk\Core">
+      <UniqueIdentifier>{159EC2CE-815E-3E05-4A99-8782B61883E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Events">
+      <UniqueIdentifier>{E188048F-4D14-7253-5625-F547C22FCE53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GamePunk.h" />
@@ -13,19 +19,42 @@
     <ClInclude Include="src\GamePunk\Core.h">
       <Filter>GamePunk</Filter>
     </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\Base.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\KeyCores.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\Log.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\MouseCores.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\GamePunk\EntryPoint.h">
       <Filter>GamePunk</Filter>
     </ClInclude>
-    <ClInclude Include="src\GamePunk\Log.h">
-      <Filter>GamePunk</Filter>
+    <ClInclude Include="src\GamePunk\Events\ApplicationEvent.h">
+      <Filter>GamePunk\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\GamePunk\Events\Event.h">
+      <Filter>GamePunk\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Events\KeyEvent.h">
+      <Filter>GamePunk\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Events\MouseEvent.h">
+      <Filter>GamePunk\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gppch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GamePunk\Application.cpp">
       <Filter>GamePunk</Filter>
     </ClCompile>
-    <ClCompile Include="src\GamePunk\Log.cpp">
-      <Filter>GamePunk</Filter>
+    <ClCompile Include="src\GamePunk\Core\Log.cpp">
+      <Filter>GamePunk\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\gppch.cpp" />
   </ItemGroup>
 </Project>

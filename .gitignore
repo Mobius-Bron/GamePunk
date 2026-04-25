@@ -1,6 +1,7 @@
 ## 忽略 Visual Studio 临时文件
 .vs/
 bin/
+bin-int/
 obj/
 Debug/
 Release/
