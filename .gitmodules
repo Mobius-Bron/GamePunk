@@ -1,3 +1,15 @@
 [submodule "GamePunk/vendor/spdlog"]
 	path = GamePunk/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "GamePunk/vendor/GLFW"]
+	path = GamePunk/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
+[submodule "GamePunk/vendor/glm"]
+	path = GamePunk/vendor/glm
+	url = https://github.com/g-truc/glm
+[submodule "GamePunk/vendor/Glad"]
+	path = GamePunk/vendor/Glad
+	url = https://github.com/Dav1dde/glad
+[submodule "GamePunk/vendor/imgui"]
+	path = GamePunk/vendor/imgui
+	url = https://github.com/ocornut/imgui

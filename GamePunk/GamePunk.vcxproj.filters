@@ -7,6 +7,9 @@
     <Filter Include="GamePunk\Core">
       <UniqueIdentifier>{159EC2CE-815E-3E05-4A99-8782B61883E1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GamePunk\Debug">
+      <UniqueIdentifier>{D3BB22A7-BF89-16AD-A81D-87D3948AF211}</UniqueIdentifier>
+    </Filter>
     <Filter Include="GamePunk\Events">
       <UniqueIdentifier>{E188048F-4D14-7253-5625-F547C22FCE53}</UniqueIdentifier>
     </Filter>
@@ -30,6 +33,9 @@
     </ClInclude>
     <ClInclude Include="src\GamePunk\Core\MouseCores.h">
       <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Debug\Instrumentor.h">
+      <Filter>GamePunk\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\EntryPoint.h">
       <Filter>GamePunk</Filter>
