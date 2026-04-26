@@ -25,7 +25,7 @@
 
 #include "GamePunk/Core/Log.h"
 
-//#include "GamePunk/Debug/Instrumentor.h"
+#include "GamePunk/Debug/Instrumentor.h"
 
 #ifdef GP_PLATFORM_WINDOWS
 	#include <Windows.h>

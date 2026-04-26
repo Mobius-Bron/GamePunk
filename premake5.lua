@@ -10,15 +10,36 @@ workspace "GamePunk"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories
+-- Include directories (与 Cherno 的 Hazel 对应)
 IncludeDir = {}
-IncludeDir["GLFW"] = "GamePunk/vendor/GLFW/include"
-IncludeDir["Glad"] = "GamePunk/vendor/Glad/include"
-IncludeDir["glm"] = "GamePunk/vendor/glm"
-IncludeDir["imgui"] = "GamePunk/vendor/imgui"
-IncludeDir["spdlog"] = "GamePunk/vendor/spdlog/include"
+IncludeDir["stb_image"]   = "GamePunk/vendor/stb_image"
+IncludeDir["yaml_cpp"]    = "GamePunk/vendor/yaml-cpp/include"
+IncludeDir["Box2D"]       = "GamePunk/vendor/Box2D/include"
+IncludeDir["filewatch"]   = "GamePunk/vendor/filewatch"
+IncludeDir["GLFW"]        = "GamePunk/vendor/GLFW/include"
+IncludeDir["Glad"]        = "GamePunk/vendor/Glad/include"
+IncludeDir["ImGui"]       = "GamePunk/vendor/imgui"
+IncludeDir["ImGuizmo"]    = "GamePunk/vendor/ImGuizmo"
+IncludeDir["glm"]         = "GamePunk/vendor/glm"
+IncludeDir["entt"]        = "GamePunk/vendor/entt/include"
+IncludeDir["spdlog"]      = "GamePunk/vendor/spdlog/include"
+IncludeDir["mono"]        = "GamePunk/vendor/mono/include"
+IncludeDir["msdfgen"]     = "GamePunk/vendor/msdf-atlas-gen/msdfgen"
+IncludeDir["msdf_atlas_gen"] = "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen"
 
--- Dependencies group
+-- 如果需要 Vulkan（可选）
+VULKAN_SDK = os.getenv("VULKAN_SDK")
+if VULKAN_SDK then
+    IncludeDir["VulkanSDK"] = VULKAN_SDK .. "/Include"
+end
+
+-- 库目录 (留作以后扩展)
+LibraryDir = {}
+Library = {}
+
+-- ========================
+-- 依赖项目组
+-- ========================
 group "Dependencies"
 
 -- GLFW
@@ -26,7 +47,7 @@ project "GLFW"
     kind "StaticLib"
     language "C"
     location "GamePunk/vendor/GLFW"
-    files { 
+    files {
         "GamePunk/vendor/GLFW/src/win32_*.c",
         "GamePunk/vendor/GLFW/src/wgl_*.c",
         "GamePunk/vendor/GLFW/src/egl_*.c",
@@ -39,11 +60,11 @@ project "GLFW"
         "GamePunk/vendor/GLFW/src/window.c",
         "GamePunk/vendor/GLFW/include/**.h"
     }
-    includedirs { 
+    includedirs {
         "GamePunk/vendor/GLFW/include",
         "GamePunk/vendor/GLFW/src"
     }
-    defines { 
+    defines {
         "_GLFW_WIN32",
         "_CRT_SECURE_NO_WARNINGS"
     }
@@ -55,48 +76,88 @@ project "Glad"
     kind "StaticLib"
     language "C"
     location "GamePunk/vendor/Glad"
-    files { 
+    files {
         "GamePunk/vendor/Glad/src/glad.c",
         "GamePunk/vendor/Glad/include/**.h"
     }
     includedirs { "GamePunk/vendor/Glad/include" }
 
--- glm (header only)
-project "glm"
-    kind "StaticLib"
-    language "C++"
-    location "GamePunk/vendor/glm"
-    files { 
-        "GamePunk/vendor/glm/glm/**.h",
-        "GamePunk/vendor/glm/glm/**.hpp"
-    }
-    includedirs { "GamePunk/vendor/glm" }
-
--- imgui
+-- imgui (核心)
 project "imgui"
     kind "StaticLib"
     language "C++"
     location "GamePunk/vendor/imgui"
-    files { 
+    files {
         "GamePunk/vendor/imgui/*.cpp",
         "GamePunk/vendor/imgui/*.h"
     }
     includedirs { "GamePunk/vendor/imgui" }
 
--- spdlog (header only)
-project "spdlog"
+-- ImGuizmo (依赖 imgui)
+project "ImGuizmo"
     kind "StaticLib"
     language "C++"
-    location "GamePunk/vendor/spdlog"
-    files { 
-        "GamePunk/vendor/spdlog/include/**.h",
-        "GamePunk/vendor/spdlog/include/**.hpp"
+    location "GamePunk/vendor/ImGuizmo"
+    files {
+        "GamePunk/vendor/ImGuizmo/*.cpp",
+        "GamePunk/vendor/ImGuizmo/*.h"
     }
-    includedirs { "GamePunk/vendor/spdlog/include" }
+    includedirs {
+        "GamePunk/vendor/ImGuizmo",
+        "%{IncludeDir.ImGui}"
+    }
+    links { "imgui" }
+
+-- yaml-cpp
+project "yaml-cpp"
+    kind "StaticLib"
+    language "C++"
+    location "GamePunk/vendor/yaml-cpp"
+    files {
+        "GamePunk/vendor/yaml-cpp/src/**.cpp",
+        "GamePunk/vendor/yaml-cpp/include/**.h"
+    }
+    includedirs { "GamePunk/vendor/yaml-cpp/include" }
+    defines { "YAML_CPP_STATIC_DEFINE" }
+
+-- Box2D
+project "Box2D"
+    kind "StaticLib"
+    language "C++"
+    location "GamePunk/vendor/Box2D"
+    files {
+        "GamePunk/vendor/Box2D/src/**.cpp",
+        "GamePunk/vendor/Box2D/include/**.h"
+    }
+    includedirs { "GamePunk/vendor/Box2D/include" }
+
+-- msdf-atlas-gen (包含 msdfgen 和 atlas)
+project "msdf-atlas-gen"
+    kind "StaticLib"
+    language "C++"
+    location "GamePunk/vendor/msdf-atlas-gen"
+    files {
+        "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen/**.cpp",
+        "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen/**.h",
+        "GamePunk/vendor/msdf-atlas-gen/msdfgen/**.cpp",
+        "GamePunk/vendor/msdf-atlas-gen/msdfgen/**.h"
+    }
+    includedirs {
+        "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen",
+        "GamePunk/vendor/msdf-atlas-gen/msdfgen"
+    }
+    defines { "MSDF_ATLAS_USE_SKIA=0" }  -- 如果不使用 Skia
+
+-- =====================================
+-- 下面是 header‑only 库（不需编译，仅用于包含）
+-- 为了整洁，不创建 project
+-- =====================================
 
 group ""
 
--- Core project
+-- ========================
+-- 核心项目 GamePunk
+-- ========================
 group "Core"
 
 project "GamePunk"
@@ -112,42 +173,47 @@ project "GamePunk"
     pchheader "gppch.h"
     pchsource "GamePunk/src/gppch.cpp"
 
-    files
-    {
+    files {
         "GamePunk/src/**.h",
         "GamePunk/src/**.hpp",
         "GamePunk/src/**.cpp"
     }
 
-    includedirs
-    {
+    includedirs {
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.imgui}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.ImGuizmo}",
+        "%{IncludeDir.yaml_cpp}",
+        "%{IncludeDir.Box2D}",
+        "%{IncludeDir.filewatch}",
+        "%{IncludeDir.entt}",
+        "%{IncludeDir.stb_image}",
+        "%{IncludeDir.msdfgen}",
+        "%{IncludeDir.msdf_atlas_gen}",
         "GamePunk/src"
     }
 
-    links
-    {
+    links {
         "GLFW",
         "Glad",
-        "glm",
         "imgui",
-        "spdlog",
+        "ImGuizmo",
+        "yaml-cpp",
+        "Box2D",
+        "msdf-atlas-gen",
         "opengl32.lib"
     }
 
     filter "system:windows"
         systemversion "latest"
-        defines
-        {
+        defines {
             "GP_PLATFORM_WINDOWS",
             "GP_BUILD_DLL"
         }
-        postbuildcommands
-        {
+        postbuildcommands {
             ("{COPY} \"%{cfg.buildtarget.relpath}\" \"../bin/" .. outputdir .. "/Sandbox\"")
         }
 
@@ -168,7 +234,9 @@ project "GamePunk"
 
 group ""
 
--- Misc project
+-- ========================
+-- 示例项目 Sandbox
+-- ========================
 group "Misc"
 
 project "Sandbox"
@@ -181,34 +249,28 @@ project "Sandbox"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-    files
-    {
+    files {
         "Sandbox/src/**.h",
         "Sandbox/src/**.hpp",
         "Sandbox/src/**.cpp"
     }
 
-    includedirs
-    {
+    includedirs {
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.imgui}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.yaml_cpp}",
+        "%{IncludeDir.Box2D}",
         "GamePunk/src"
     }
 
-    links
-    {
-        "GamePunk"
-    }
+    links { "GamePunk" }
 
     filter "system:windows"
         systemversion "latest"
-        defines
-        {
-            "GP_PLATFORM_WINDOWS"
-        }
+        defines { "GP_PLATFORM_WINDOWS" }
 
     filter "configurations:Debug"
         defines "GP_DEBUG"

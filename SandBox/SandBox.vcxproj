@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GP_PLATFORM_WINDOWS;GP_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\GamePunk\vendor\spdlog\include;..\GamePunk\vendor\GLFW\include;..\GamePunk\vendor\Glad\include;..\GamePunk\vendor\glm;..\GamePunk\vendor\imgui;..\GamePunk\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\GamePunk\vendor\spdlog\include;..\GamePunk\vendor\GLFW\include;..\GamePunk\vendor\Glad\include;..\GamePunk\vendor\glm;..\GamePunk\vendor\imgui;..\GamePunk\vendor\yaml-cpp\include;..\GamePunk\vendor\Box2D\include;..\GamePunk\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,7 +98,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GP_PLATFORM_WINDOWS;GP_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\GamePunk\vendor\spdlog\include;..\GamePunk\vendor\GLFW\include;..\GamePunk\vendor\Glad\include;..\GamePunk\vendor\glm;..\GamePunk\vendor\imgui;..\GamePunk\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\GamePunk\vendor\spdlog\include;..\GamePunk\vendor\GLFW\include;..\GamePunk\vendor\Glad\include;..\GamePunk\vendor\glm;..\GamePunk\vendor\imgui;..\GamePunk\vendor\yaml-cpp\include;..\GamePunk\vendor\Box2D\include;..\GamePunk\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -121,7 +121,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GP_PLATFORM_WINDOWS;GP_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\GamePunk\vendor\spdlog\include;..\GamePunk\vendor\GLFW\include;..\GamePunk\vendor\Glad\include;..\GamePunk\vendor\glm;..\GamePunk\vendor\imgui;..\GamePunk\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\GamePunk\vendor\spdlog\include;..\GamePunk\vendor\GLFW\include;..\GamePunk\vendor\Glad\include;..\GamePunk\vendor\glm;..\GamePunk\vendor\imgui;..\GamePunk\vendor\yaml-cpp\include;..\GamePunk\vendor\Box2D\include;..\GamePunk\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

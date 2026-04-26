@@ -13,3 +13,15 @@
 [submodule "GamePunk/vendor/imgui"]
 	path = GamePunk/vendor/imgui
 	url = https://github.com/ocornut/imgui
+[submodule "GamePunk/vendor/yaml-cpp"]
+	path = GamePunk/vendor/yaml-cpp
+	url = https://github.com/thecherno/yaml-cpp.git
+[submodule "GamePunk/vendor/ImGuizmo"]
+	path = GamePunk/vendor/ImGuizmo
+	url = https://github.com/thecherno/imguizmo.git
+[submodule "GamePunk/vendor/Box2D"]
+	path = GamePunk/vendor/Box2D
+	url = https://github.com/thecherno/box2d.git
+[submodule "GamePunk/vendor/msdf-atlas-gen"]
+	path = GamePunk/vendor/msdf-atlas-gen
+	url = https://github.com/TheCherno/msdf-atlas-gen.git

@@ -25,17 +25,14 @@
     <ClInclude Include="src\GamePunk\Core\Base.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\GamePunk\Core\KeyCores.h">
+    <ClInclude Include="src\GamePunk\Core\KeyCodes.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Core\Log.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\GamePunk\Core\MouseCores.h">
+    <ClInclude Include="src\GamePunk\Core\MouseCodes.h">
       <Filter>GamePunk\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GamePunk\Debug\Instrumentor.h">
-      <Filter>GamePunk\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\EntryPoint.h">
       <Filter>GamePunk</Filter>
@@ -53,6 +50,15 @@
       <Filter>GamePunk\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\gppch.h" />
+    <ClInclude Include="src\GamePunk\Core\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\GamePunk\Core\Input.h" />
+    <ClInclude Include="src\GamePunk\Core\PlatformDetection.h" />
+    <ClInclude Include="src\GamePunk\Core\Assert.h" />
+    <ClInclude Include="src\GamePunk\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\GamePunk\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GamePunk\Application.cpp">
@@ -62,5 +68,10 @@
       <Filter>GamePunk\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\gppch.cpp" />
+    <ClCompile Include="src\GamePunk\Core\Window.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>
