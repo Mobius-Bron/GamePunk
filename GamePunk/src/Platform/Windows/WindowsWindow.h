@@ -7,7 +7,6 @@
 
 namespace GP
 {
-
 	class WindowsWindow : public Window
 	{
 	public:
@@ -43,5 +42,4 @@ namespace GP
 
 		WindowData m_Data;
 	};
-
 }

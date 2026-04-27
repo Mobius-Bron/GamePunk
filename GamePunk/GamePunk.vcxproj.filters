@@ -16,7 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GamePunk.h" />
-    <ClInclude Include="src\GamePunk\Application.h">
+    <ClInclude Include="src\GamePunk\Core\Application.h">
       <Filter>GamePunk</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Core.h">
@@ -34,7 +34,7 @@
     <ClInclude Include="src\GamePunk\Core\MouseCodes.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\GamePunk\EntryPoint.h">
+    <ClInclude Include="src\GamePunk\Core\EntryPoint.h">
       <Filter>GamePunk</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Events\ApplicationEvent.h">
@@ -59,9 +59,31 @@
     <ClInclude Include="src\GamePunk\Renderer\Renderer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\GamePunk\Debug\Instrumentor.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Buffer.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Camera.h" />
+    <ClInclude Include="src\GamePunk\Renderer\EditorCamera.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Font.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Framebuffer.h" />
+    <ClInclude Include="src\GamePunk\Renderer\MSDFData.h" />
+    <ClInclude Include="src\GamePunk\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\GamePunk\Renderer\OrthographicCameraController.h" />
+    <ClInclude Include="src\GamePunk\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\GamePunk\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\GamePunk\Renderer\Texture.h" />
+    <ClInclude Include="src\GamePunk\Renderer\UniformBuffer.h" />
+    <ClInclude Include="src\GamePunk\Renderer\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\GamePunk\Application.cpp">
+    <ClCompile Include="src\GamePunk\Core\Application.cpp">
       <Filter>GamePunk</Filter>
     </ClCompile>
     <ClCompile Include="src\GamePunk\Core\Log.cpp">
@@ -73,5 +95,25 @@
     <ClCompile Include="src\GamePunk\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\GamePunk\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\EditorCamera.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Font.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\Texture.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\UniformBuffer.cpp" />
+    <ClCompile Include="src\GamePunk\Renderer\VertexArray.cpp" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GamePunk/Events/Event.h"
-#include "GamePunk/Core/KeyCores.h"
+#include "GamePunk/Core/KeyCodes.h"
 
 namespace GP 
 {

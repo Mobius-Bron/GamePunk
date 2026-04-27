@@ -1,6 +1,6 @@
 #pragma once
 #include "GamePunk/Events/Event.h"
-#include "GamePunk/Core/MouseCores.h"
+#include "GamePunk/Core/MouseCodes.h"
 
 namespace GP 
 {
