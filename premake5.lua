@@ -10,7 +10,7 @@ workspace "GamePunk"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories (与 Cherno 的 Hazel 对应)
+-- Include directories
 IncludeDir = {}
 IncludeDir["stb_image"]   = "GamePunk/vendor/stb_image"
 IncludeDir["yaml_cpp"]    = "GamePunk/vendor/yaml-cpp/include"
@@ -27,15 +27,19 @@ IncludeDir["mono"]        = "GamePunk/vendor/mono/include"
 IncludeDir["msdfgen"]     = "GamePunk/vendor/msdf-atlas-gen/msdfgen"
 IncludeDir["msdf_atlas_gen"] = "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen"
 
+-- Library directories (for precompiled libraries)
+LibraryDir = {}
+LibraryDir["mono"] = "GamePunk/vendor/mono/lib"
+
+-- Library names
+Library = {}
+Library["mono"] = "mono-static-sgen"  -- 根据 Mono 版本调整
+
 -- 如果需要 Vulkan（可选）
 VULKAN_SDK = os.getenv("VULKAN_SDK")
 if VULKAN_SDK then
     IncludeDir["VulkanSDK"] = VULKAN_SDK .. "/Include"
 end
-
--- 库目录 (留作以后扩展)
-LibraryDir = {}
-Library = {}
 
 -- ========================
 -- 依赖项目组
@@ -146,12 +150,7 @@ project "msdf-atlas-gen"
         "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen",
         "GamePunk/vendor/msdf-atlas-gen/msdfgen"
     }
-    defines { "MSDF_ATLAS_USE_SKIA=0" }  -- 如果不使用 Skia
-
--- =====================================
--- 下面是 header‑only 库（不需编译，仅用于包含）
--- 为了整洁，不创建 project
--- =====================================
+    defines { "MSDF_ATLAS_USE_SKIA=0" }
 
 group ""
 
@@ -193,7 +192,13 @@ project "GamePunk"
         "%{IncludeDir.stb_image}",
         "%{IncludeDir.msdfgen}",
         "%{IncludeDir.msdf_atlas_gen}",
+        "%{IncludeDir.mono}",
         "GamePunk/src"
+    }
+
+    -- 添加库路径
+    libdirs {
+        "%{LibraryDir.mono}"
     }
 
     links {
@@ -204,8 +209,32 @@ project "GamePunk"
         "yaml-cpp",
         "Box2D",
         "msdf-atlas-gen",
-        "opengl32.lib"
+        "opengl32.lib",
+        "winmm.lib"
     }
+
+    -- 根据配置链接不同的 Mono 库
+    filter "configurations:Debug"
+        defines { 
+            "GP_DEBUG",
+            "_DEBUG"
+        }
+        runtime "Debug"
+        symbols "on"
+        links {
+            "%{LibraryDir.mono}/Debug/%{Library.mono}.lib"
+        }
+
+    filter "configurations:Release or Dist"
+        defines { 
+            "GP_RELEASE",
+            "NDEBUG"
+        }
+        runtime "Release"
+        optimize "on"
+        links {
+            "%{LibraryDir.mono}/Release/%{Library.mono}.lib"
+        }
 
     filter "system:windows"
         systemversion "latest"
@@ -216,21 +245,6 @@ project "GamePunk"
         postbuildcommands {
             ("{COPY} \"%{cfg.buildtarget.relpath}\" \"../bin/" .. outputdir .. "/Sandbox\"")
         }
-
-    filter "configurations:Debug"
-        defines "GP_DEBUG"
-        runtime "Debug"
-        symbols "on"
-
-    filter "configurations:Release"
-        defines "GP_RELEASE"
-        runtime "Release"
-        optimize "on"
-
-    filter "configurations:Dist"
-        defines "GP_DIST"
-        runtime "Release"
-        optimize "on"
 
 group ""
 

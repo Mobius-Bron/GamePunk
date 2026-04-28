@@ -13,8 +13,32 @@
     <Filter Include="GamePunk\Events">
       <UniqueIdentifier>{E188048F-4D14-7253-5625-F547C22FCE53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GamePunk\ImGui">
+      <UniqueIdentifier>{872681A7-73F4-74AD-5C88-E5D348F55012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Math">
+      <UniqueIdentifier>{96DEC7CE-029F-4305-CBD9-8C82375988E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Physics">
+      <UniqueIdentifier>{0F801A9F-FB78-39F1-24AB-1E76100319FD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Project">
+      <UniqueIdentifier>{E320B4B5-CF19-D307-F84B-B88CE4A3B213}</UniqueIdentifier>
+    </Filter>
     <Filter Include="GamePunk\Renderer">
       <UniqueIdentifier>{E3534559-4F6A-43EF-98E1-CE1004371477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Scene">
+      <UniqueIdentifier>{7A1E31A8-66EC-24AE-4F80-95D43BED0013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Scripting">
+      <UniqueIdentifier>{DF8C435E-CB70-04B4-34D1-FE0620D4EE35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\UI">
+      <UniqueIdentifier>{AAB93666-166F-AF5B-9F63-A9320B18A65F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GamePunk\Utils">
+      <UniqueIdentifier>{BDB25EA8-A980-52AE-9214-C3D47E812E13}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -49,6 +73,12 @@
     <ClInclude Include="src\GamePunk\Core\KeyCodes.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\Layer.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\LayerStack.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\GamePunk\Core\Log.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
@@ -56,6 +86,15 @@
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Core\PlatformDetection.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\Timer.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\Timestep.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\UUID.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Core\Window.h">
@@ -75,6 +114,21 @@
     </ClInclude>
     <ClInclude Include="src\GamePunk\Events\MouseEvent.h">
       <Filter>GamePunk\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\ImGui\ImGuiLayer.h">
+      <Filter>GamePunk\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Math\Math.h">
+      <Filter>GamePunk\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Physics\Physics2D.h">
+      <Filter>GamePunk\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Project\Project.h">
+      <Filter>GamePunk\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Project\ProjectSerializer.h">
+      <Filter>GamePunk\Project</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Renderer\Buffer.h">
       <Filter>GamePunk\Renderer</Filter>
@@ -127,6 +181,36 @@
     <ClInclude Include="src\GamePunk\Renderer\VertexArray.h">
       <Filter>GamePunk\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\GamePunk\Scene\Components.h">
+      <Filter>GamePunk\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scene\Entity.h">
+      <Filter>GamePunk\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scene\Scene.h">
+      <Filter>GamePunk\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scene\SceneCamera.h">
+      <Filter>GamePunk\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scene\SceneSerializer.h">
+      <Filter>GamePunk\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scene\Scriptableentity.h">
+      <Filter>GamePunk\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scripting\ScriptEngine.h">
+      <Filter>GamePunk\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Scripting\ScriptGlue.h">
+      <Filter>GamePunk\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\UI\UI.h">
+      <Filter>GamePunk\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Utils\PlatformUtils.h">
+      <Filter>GamePunk\Utils</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
@@ -160,11 +244,35 @@
     <ClCompile Include="src\GamePunk\Core\Application.cpp">
       <Filter>GamePunk\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\GamePunk\Core\Layer.cpp">
+      <Filter>GamePunk\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Core\LayerStack.cpp">
+      <Filter>GamePunk\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\GamePunk\Core\Log.cpp">
+      <Filter>GamePunk\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Core\UUID.cpp">
       <Filter>GamePunk\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\GamePunk\Core\Window.cpp">
       <Filter>GamePunk\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\ImGui\ImGuiBuild.cpp">
+      <Filter>GamePunk\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\ImGui\ImGuiLayer.cpp">
+      <Filter>GamePunk\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Math\Math.cpp">
+      <Filter>GamePunk\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Project\Project.cpp">
+      <Filter>GamePunk\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Project\ProjectSerializer.cpp">
+      <Filter>GamePunk\Project</Filter>
     </ClCompile>
     <ClCompile Include="src\GamePunk\Renderer\Buffer.cpp">
       <Filter>GamePunk\Renderer</Filter>
@@ -210,6 +318,24 @@
     </ClCompile>
     <ClCompile Include="src\GamePunk\Renderer\VertexArray.cpp">
       <Filter>GamePunk\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Scene\Entity.cpp">
+      <Filter>GamePunk\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Scene\Scene.cpp">
+      <Filter>GamePunk\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Scene\SceneCamera.cpp">
+      <Filter>GamePunk\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Scene\SceneSerializer.cpp">
+      <Filter>GamePunk\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Scripting\ScriptEngine.cpp">
+      <Filter>GamePunk\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Scripting\ScriptGlue.cpp">
+      <Filter>GamePunk\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>Platform\OpenGL</Filter>

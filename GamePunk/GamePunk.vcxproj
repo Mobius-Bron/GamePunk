@@ -79,8 +79,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>gppch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GP_PLATFORM_WINDOWS;GP_BUILD_DLL;GP_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\imgui;vendor\ImGuizmo;vendor\yaml-cpp\include;vendor\Box2D\include;vendor\filewatch;vendor\entt\include;vendor\stb_image;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GP_DEBUG;_DEBUG;GP_PLATFORM_WINDOWS;GP_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\imgui;vendor\ImGuizmo;vendor\yaml-cpp\include;vendor\Box2D\include;vendor\filewatch;vendor\entt\include;vendor\stb_image;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;vendor\mono\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -90,7 +90,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;winmm.lib;GamePunk\vendor\mono\lib\Debug\mono-static-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\mono\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Debug-windows-x86_64\GamePunk\GamePunk.lib</ImportLibrary>
     </Link>
     <ProjectReference>
@@ -104,8 +105,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>gppch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GP_PLATFORM_WINDOWS;GP_BUILD_DLL;GP_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\imgui;vendor\ImGuizmo;vendor\yaml-cpp\include;vendor\Box2D\include;vendor\filewatch;vendor\entt\include;vendor\stb_image;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GP_RELEASE;NDEBUG;GP_PLATFORM_WINDOWS;GP_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\imgui;vendor\ImGuizmo;vendor\yaml-cpp\include;vendor\Box2D\include;vendor\filewatch;vendor\entt\include;vendor\stb_image;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;vendor\mono\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,7 +120,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;winmm.lib;GamePunk\vendor\mono\lib\Release\mono-static-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\mono\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\GamePunk\GamePunk.lib</ImportLibrary>
     </Link>
     <ProjectReference>
@@ -133,8 +135,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>gppch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>GP_PLATFORM_WINDOWS;GP_BUILD_DLL;GP_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\imgui;vendor\ImGuizmo;vendor\yaml-cpp\include;vendor\Box2D\include;vendor\filewatch;vendor\entt\include;vendor\stb_image;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GP_RELEASE;NDEBUG;GP_PLATFORM_WINDOWS;GP_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\imgui;vendor\ImGuizmo;vendor\yaml-cpp\include;vendor\Box2D\include;vendor\filewatch;vendor\entt\include;vendor\stb_image;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;vendor\mono\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -148,7 +150,8 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;winmm.lib;GamePunk\vendor\mono\lib\Release\mono-static-sgen.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\mono\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Dist-windows-x86_64\GamePunk\GamePunk.lib</ImportLibrary>
     </Link>
     <ProjectReference>
@@ -166,15 +169,25 @@
     <ClInclude Include="src\GamePunk\Core\EntryPoint.h" />
     <ClInclude Include="src\GamePunk\Core\Input.h" />
     <ClInclude Include="src\GamePunk\Core\KeyCodes.h" />
+    <ClInclude Include="src\GamePunk\Core\Layer.h" />
+    <ClInclude Include="src\GamePunk\Core\LayerStack.h" />
     <ClInclude Include="src\GamePunk\Core\Log.h" />
     <ClInclude Include="src\GamePunk\Core\MouseCodes.h" />
     <ClInclude Include="src\GamePunk\Core\PlatformDetection.h" />
+    <ClInclude Include="src\GamePunk\Core\Timer.h" />
+    <ClInclude Include="src\GamePunk\Core\Timestep.h" />
+    <ClInclude Include="src\GamePunk\Core\UUID.h" />
     <ClInclude Include="src\GamePunk\Core\Window.h" />
     <ClInclude Include="src\GamePunk\Debug\Instrumentor.h" />
     <ClInclude Include="src\GamePunk\Events\ApplicationEvent.h" />
     <ClInclude Include="src\GamePunk\Events\Event.h" />
     <ClInclude Include="src\GamePunk\Events\KeyEvent.h" />
     <ClInclude Include="src\GamePunk\Events\MouseEvent.h" />
+    <ClInclude Include="src\GamePunk\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\GamePunk\Math\Math.h" />
+    <ClInclude Include="src\GamePunk\Physics\Physics2D.h" />
+    <ClInclude Include="src\GamePunk\Project\Project.h" />
+    <ClInclude Include="src\GamePunk\Project\ProjectSerializer.h" />
     <ClInclude Include="src\GamePunk\Renderer\Buffer.h" />
     <ClInclude Include="src\GamePunk\Renderer\Camera.h" />
     <ClInclude Include="src\GamePunk\Renderer\EditorCamera.h" />
@@ -192,6 +205,16 @@
     <ClInclude Include="src\GamePunk\Renderer\Texture.h" />
     <ClInclude Include="src\GamePunk\Renderer\UniformBuffer.h" />
     <ClInclude Include="src\GamePunk\Renderer\VertexArray.h" />
+    <ClInclude Include="src\GamePunk\Scene\Components.h" />
+    <ClInclude Include="src\GamePunk\Scene\Entity.h" />
+    <ClInclude Include="src\GamePunk\Scene\Scene.h" />
+    <ClInclude Include="src\GamePunk\Scene\SceneCamera.h" />
+    <ClInclude Include="src\GamePunk\Scene\SceneSerializer.h" />
+    <ClInclude Include="src\GamePunk\Scene\Scriptableentity.h" />
+    <ClInclude Include="src\GamePunk\Scripting\ScriptEngine.h" />
+    <ClInclude Include="src\GamePunk\Scripting\ScriptGlue.h" />
+    <ClInclude Include="src\GamePunk\UI\UI.h" />
+    <ClInclude Include="src\GamePunk\Utils\PlatformUtils.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
@@ -205,8 +228,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GamePunk\Core\Application.cpp" />
+    <ClCompile Include="src\GamePunk\Core\Layer.cpp" />
+    <ClCompile Include="src\GamePunk\Core\LayerStack.cpp" />
     <ClCompile Include="src\GamePunk\Core\Log.cpp" />
+    <ClCompile Include="src\GamePunk\Core\UUID.cpp" />
     <ClCompile Include="src\GamePunk\Core\Window.cpp" />
+    <ClCompile Include="src\GamePunk\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\GamePunk\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\GamePunk\Math\Math.cpp" />
+    <ClCompile Include="src\GamePunk\Project\Project.cpp" />
+    <ClCompile Include="src\GamePunk\Project\ProjectSerializer.cpp" />
     <ClCompile Include="src\GamePunk\Renderer\Buffer.cpp" />
     <ClCompile Include="src\GamePunk\Renderer\EditorCamera.cpp" />
     <ClCompile Include="src\GamePunk\Renderer\Font.cpp" />
@@ -222,6 +253,12 @@
     <ClCompile Include="src\GamePunk\Renderer\Texture.cpp" />
     <ClCompile Include="src\GamePunk\Renderer\UniformBuffer.cpp" />
     <ClCompile Include="src\GamePunk\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\GamePunk\Scene\Entity.cpp" />
+    <ClCompile Include="src\GamePunk\Scene\Scene.cpp" />
+    <ClCompile Include="src\GamePunk\Scene\SceneCamera.cpp" />
+    <ClCompile Include="src\GamePunk\Scene\SceneSerializer.cpp" />
+    <ClCompile Include="src\GamePunk\Scripting\ScriptEngine.cpp" />
+    <ClCompile Include="src\GamePunk\Scripting\ScriptGlue.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />

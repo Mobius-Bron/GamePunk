@@ -10,16 +10,19 @@ extern GP::Application* GP::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	printf("GamePunk Engine Starting...\n");
-
 	GP::Log::Init();
-	GP_CORE_WARN("Core Initialized Log!");
 
+	//GP_PROFILE_BEGIN_SESSION("Startup", "GamePunkProfile-Startup.json");
 	auto app = GP::CreateApplication();
+	//GP_PROFILE_END_SESSION();
 
+	//GP_PROFILE_BEGIN_SESSION("Startup", "GamePunkProfile-Startup.json");
 	app->Run();
+	//GP_PROFILE_END_SESSION();
 
+	//GP_PROFILE_BEGIN_SESSION("Startup", "GamePunkProfile-Startup.json");
 	delete app;
+	//GP_PROFILE_END_SESSION();
 }
 
 #endif //  GP_PLATFROM_WINDOWS
