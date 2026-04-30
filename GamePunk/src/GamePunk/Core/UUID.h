@@ -20,9 +20,9 @@ namespace std {
 	template <typename T> struct hash;
 
 	template<>
-	struct hash<Hazel::UUID>
+	struct hash<GP::UUID>
 	{
-		std::size_t operator()(const Hazel::UUID& uuid) const
+		std::size_t operator()(const GP::UUID& uuid) const
 		{
 			return (uint64_t)uuid;
 		}

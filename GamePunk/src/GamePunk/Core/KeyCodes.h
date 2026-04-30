@@ -1,6 +1,5 @@
 #pragma once
 
-#include "GamePunk/gppch.h"
 
 namespace GP
 {

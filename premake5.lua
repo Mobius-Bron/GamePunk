@@ -41,6 +41,11 @@ if VULKAN_SDK then
     IncludeDir["VulkanSDK"] = VULKAN_SDK .. "/Include"
 end
 
+-- 全局 UTF-8 编译选项
+function setup_utf8()
+    buildoptions { "/utf-8" }
+end
+
 -- ========================
 -- 依赖项目组
 -- ========================
@@ -51,6 +56,9 @@ project "GLFW"
     kind "StaticLib"
     language "C"
     location "GamePunk/vendor/GLFW"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/GLFW/src/win32_*.c",
         "GamePunk/vendor/GLFW/src/wgl_*.c",
@@ -80,6 +88,9 @@ project "Glad"
     kind "StaticLib"
     language "C"
     location "GamePunk/vendor/Glad"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/Glad/src/glad.c",
         "GamePunk/vendor/Glad/include/**.h"
@@ -90,7 +101,11 @@ project "Glad"
 project "imgui"
     kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
     location "GamePunk/vendor/imgui"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/imgui/*.cpp",
         "GamePunk/vendor/imgui/*.h"
@@ -101,7 +116,11 @@ project "imgui"
 project "ImGuizmo"
     kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
     location "GamePunk/vendor/ImGuizmo"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/ImGuizmo/*.cpp",
         "GamePunk/vendor/ImGuizmo/*.h"
@@ -116,7 +135,11 @@ project "ImGuizmo"
 project "yaml-cpp"
     kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
     location "GamePunk/vendor/yaml-cpp"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/yaml-cpp/src/**.cpp",
         "GamePunk/vendor/yaml-cpp/include/**.h"
@@ -128,7 +151,11 @@ project "yaml-cpp"
 project "Box2D"
     kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
     location "GamePunk/vendor/Box2D"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/Box2D/src/**.cpp",
         "GamePunk/vendor/Box2D/include/**.h"
@@ -139,7 +166,11 @@ project "Box2D"
 project "msdf-atlas-gen"
     kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
     location "GamePunk/vendor/msdf-atlas-gen"
+    
+    setup_utf8()
+    
     files {
         "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen/**.cpp",
         "GamePunk/vendor/msdf-atlas-gen/msdf-atlas-gen/**.h",
@@ -169,13 +200,18 @@ project "GamePunk"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    -- 预编译头配置
     pchheader "gppch.h"
     pchsource "GamePunk/src/gppch.cpp"
+
+    -- UTF-8 支持
+    setup_utf8()
 
     files {
         "GamePunk/src/**.h",
         "GamePunk/src/**.hpp",
-        "GamePunk/src/**.cpp"
+        "GamePunk/src/**.cpp",
+        "GamePunk/src/**.c"
     }
 
     includedirs {
@@ -262,6 +298,9 @@ project "Sandbox"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    -- UTF-8 支持
+    setup_utf8()
 
     files {
         "Sandbox/src/**.h",

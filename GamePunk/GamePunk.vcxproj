@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -113,6 +114,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -143,6 +145,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -166,7 +169,9 @@
     <ClInclude Include="src\GamePunk\Core\Application.h" />
     <ClInclude Include="src\GamePunk\Core\Assert.h" />
     <ClInclude Include="src\GamePunk\Core\Base.h" />
+    <ClInclude Include="src\GamePunk\Core\Buffer.h" />
     <ClInclude Include="src\GamePunk\Core\EntryPoint.h" />
+    <ClInclude Include="src\GamePunk\Core\FileSystem.h" />
     <ClInclude Include="src\GamePunk\Core\Input.h" />
     <ClInclude Include="src\GamePunk\Core\KeyCodes.h" />
     <ClInclude Include="src\GamePunk\Core\Layer.h" />
@@ -228,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GamePunk\Core\Application.cpp" />
+    <ClCompile Include="src\GamePunk\Core\FileSystem.cpp" />
     <ClCompile Include="src\GamePunk\Core\Layer.cpp" />
     <ClCompile Include="src\GamePunk\Core\LayerStack.cpp" />
     <ClCompile Include="src\GamePunk\Core\Log.cpp" />

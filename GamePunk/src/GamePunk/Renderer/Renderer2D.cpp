@@ -1,13 +1,17 @@
 #include "gppch.h"
-#include "GamePunk/Renderer/Renderer2D.h"
+#include "Renderer2D.h"
 
-#include "GamePunk/Renderer/VertexArray.h"
 #include "GamePunk/Renderer/Shader.h"
+#include "GamePunk/Renderer/Buffer.h"
 #include "GamePunk/Renderer/UniformBuffer.h"
 #include "GamePunk/Renderer/RenderCommand.h"
+#include "GamePunk/Renderer/VertexArray.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include "MSDFData.h"
 

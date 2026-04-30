@@ -64,7 +64,13 @@
     <ClInclude Include="src\GamePunk\Core\Base.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\Buffer.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\GamePunk\Core\EntryPoint.h">
+      <Filter>GamePunk\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GamePunk\Core\FileSystem.h">
       <Filter>GamePunk\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\GamePunk\Core\Input.h">
@@ -242,6 +248,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GamePunk\Core\Application.cpp">
+      <Filter>GamePunk\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GamePunk\Core\FileSystem.cpp">
       <Filter>GamePunk\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\GamePunk\Core\Layer.cpp">

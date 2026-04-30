@@ -13,7 +13,7 @@
 
 namespace GP
 {
-	class Renderer2D
+	class RendererXY
 	{
 	public:
 		static void Init();
@@ -24,7 +24,7 @@ namespace GP
 			GP_PROFILE_FUNCTION();
 
 			s_Data.CameraBuffer.ViewProjection = camera.GetProjection() * glm::inverse(transform);
-			s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
+			s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(RendererXYData::CameraData));
 
 			StartBatch();
 		}
